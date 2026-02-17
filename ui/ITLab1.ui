@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ITLab1Class</class>
+ <widget class="QMainWindow" name="ITLab1Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Cipher Tool</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #1e1e2e; }
+QTabWidget::pane { border: 2px solid #313244; border-radius: 8px; background-color: #181825; top: -1px; }
+QTabBar::tab { background-color: #313244; color: #cdd6f4; padding: 12px 24px; margin-right: 4px; border-top-left-radius: 8px; border-top-right-radius: 8px; font-weight: bold; font-size: 13px; }
+QTabBar::tab:selected { background-color: #89b4fa; color: #1e1e2e; }
+QTabBar::tab:hover:!selected { background-color: #45475a; }
+QLabel { color: #cdd6f4; font-size: 13px; font-weight: 500; }
+QTextEdit, QLineEdit { background-color: #313244; color: #cdd6f4; border: 2px solid #45475a; border-radius: 6px; padding: 8px; font-size: 13px; selection-background-color: #89b4fa; }
+QTextEdit:focus, QLineEdit:focus { border: 2px solid #89b4fa; }
+QPushButton { background-color: #89b4fa; color: #1e1e2e; border: none; border-radius: 6px; padding: 10px 20px; font-weight: bold; font-size: 13px; }
+QPushButton:hover { background-color: #b4befe; }
+QPushButton:pressed { background-color: #74c7ec; }
+QPushButton#btnVigenereDecrypt, QPushButton#btnPlayfairDecrypt { background-color: #f38ba8; }
+QPushButton#btnVigenereDecrypt:hover, QPushButton#btnPlayfairDecrypt:hover { background-color: #fab387; }
+QPushButton#btnLoad, QPushButton#btnSave { background-color: #a6e3a1; color: #1e1e2e; }
+QPushButton#btnLoad:hover, QPushButton#btnSave:hover { background-color: #94e2d5; }
+QGroupBox { color: #89b4fa; font-weight: bold; font-size: 14px; border: 2px solid #313244; border-radius: 8px; margin-top: 12px; padding-top: 16px; }
+QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 8px; }</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>16</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="styleSheet">
+       <string notr="true">font-size: 24px; font-weight: bold; color: #89b4fa; margin-bottom: 10px;</string>
+      </property>
+      <property name="text">
+       <string>Криптографические алгоритмы</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabVigenere">
+       <attribute name="title">
+        <string>Шифр Виженера</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="layoutVigenere">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="groupVigenereInput">
+          <property name="title">
+           <string>Исходный текст</string>
+          </property>
+          <layout class="QVBoxLayout" name="inputLayout1">
+           <item>
+            <widget class="QTextEdit" name="teVigenereInput">
+             <property name="placeholderText">
+              <string>Введите исходный текст...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="fileLayout1">
+             <item>
+              <widget class="QPushButton" name="btnVigenereLoad">
+               <property name="text">
+                <string>Загрузить из файла</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="spacer1">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupVigenereKey">
+          <property name="title">
+           <string>Ключ</string>
+          </property>
+          <layout class="QHBoxLayout" name="keyLayout1">
+           <item>
+            <widget class="QLineEdit" name="leVigenereKey">
+             <property name="placeholderText">
+              <string>Введите ключ...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="actionLayout1">
+          <item>
+           <spacer name="spacerLeft1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnVigenereEncrypt">
+            <property name="text">
+             <string>Зашифровать</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnVigenereDecrypt">
+            <property name="text">
+             <string>Расшифровать</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spacerRight1">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupVigenereOutput">
+          <property name="title">
+           <string>Результат</string>
+          </property>
+          <layout class="QVBoxLayout" name="outputLayout1">
+           <item>
+            <widget class="QTextEdit" name="teVigenereOutput">
+             <property name="styleSheet">
+              <string notr="true">background-color: #1e1e2e;</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Здесь будет результат обработки...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="saveLayout1">
+             <item>
+              <spacer name="spacerSave1">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnVigenereSave">
+               <property name="text">
+                <string>Сохранить в файл</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPlayfair">
+       <attribute name="title">
+        <string>Щифр Плейфера (4 таблицы)</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="layoutCipher2">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="groupPlayfairInput">
+          <property name="title">
+           <string>Исходный текст</string>
+          </property>
+          <layout class="QVBoxLayout" name="inputLayout2">
+           <item>
+            <widget class="QTextEdit" name="tePlayfairInput">
+             <property name="acceptRichText">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Введите исходный текст...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="fileLayout2">
+             <item>
+              <widget class="QPushButton" name="btnPlayfairLoad">
+               <property name="text">
+                <string>Загрузить из файла</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="spacer2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupPlayfairKeys">
+          <property name="title">
+           <string>Ключи</string>
+          </property>
+          <layout class="QGridLayout" name="keysLayout2">
+           <property name="spacing">
+            <number>12</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblKeyTL">
+             <property name="text">
+              <string>Ключ A (Верх-Лев):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lePlayfairKeyTL">
+             <property name="placeholderText">
+              <string>Введите ключ A...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lblKeyTR">
+             <property name="text">
+              <string>Ключ B (Верх-Прав):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLineEdit" name="lePlayfairKeyTR">
+             <property name="placeholderText">
+              <string>Введите ключ B...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="lblKeyBL">
+             <property name="text">
+              <string>Ключ C (Низ-Лев):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lePlayfairKeyBL">
+             <property name="placeholderText">
+              <string>Введите ключ C...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="lblKeyBR">
+             <property name="text">
+              <string>Ключ D (Низ-Прав):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="lePlayfairKeyBR">
+             <property name="placeholderText">
+              <string>Введите ключ D...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="actionLayout2">
+          <item>
+           <spacer name="spacerLeft2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnPlayfairEncrypt">
+            <property name="text">
+             <string>Зашифровать</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnPlayfairDecrypt">
+            <property name="text">
+             <string>Расшифровать</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="spacerRight2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupPlayfairOutput">
+          <property name="title">
+           <string>Результат</string>
+          </property>
+          <layout class="QVBoxLayout" name="outputLayout2">
+           <item>
+            <widget class="QTextEdit" name="tePlayfairOutput">
+             <property name="styleSheet">
+              <string notr="true">background-color: #1e1e2e;</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>Здесь будет результат обработки...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="saveLayout2">
+             <item>
+              <spacer name="spacerSave2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnPlayfairSave">
+               <property name="text">
+                <string>Сохранить в файл</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="statusLabel">
+      <property name="styleSheet">
+       <string notr="true">color: #6c7086; font-size: 11px; padding-top: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Система готова</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
