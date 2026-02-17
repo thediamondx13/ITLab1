@@ -6,16 +6,16 @@ A Qt-based desktop application that implements classical encryption algorithms: 
 
 ### Vigenere Cipher
 - Encrypt and decrypt text using the Vigenere cipher algorithm
-- Support for both Russian and English alphabets
+- Save and load text to/from files
+- Support for Russian alphabet
 - Text input/output via GUI
-- Save and load encrypted/decrypted text to/from files
 
 ### Playfair Cipher (4 Tables Modification)
 - Encrypt and decrypt text using an enhanced Playfair cipher with 4 substitution tables
 - Each table (top-left, top-right, bottom-left, bottom-right) uses a separate key
 - Cleaner implementation compared to traditional single-table Playfair
-- Save and load encrypted/decrypted text to/from files
-- Support for multiple alphabet sets
+- Save and load text to/from files
+- Support for English alphabet
 
 ## How to Use
 
@@ -23,15 +23,15 @@ A Qt-based desktop application that implements classical encryption algorithms: 
 
 2. **Vigenere Cipher:**
    - Enter your plaintext in the input text area
-   - Enter your encryption key (will be automatically sanitized to remove non-alphabet characters)
+   - Enter your encryption key
    - Click "Encrypt" to encode or "Decrypt" to decode
-   - Use "Load" and "Save" buttons to work with files
+   - Use "Load" and "Save" buttons to use file I/O
 
 3. **Playfair Cipher:**
    - Enter your plaintext in the input text area
    - Provide four separate keys (one for each table: TL, TR, BL, BR)
    - Click "Encrypt" to encode or "Decrypt" to decode
-   - Use "Load" and "Save" buttons to work with files
+   - Use "Load" and "Save" buttons to use file I/O
 
 ## Technical Details
 
@@ -40,7 +40,7 @@ A Qt-based desktop application that implements classical encryption algorithms: 
 - **Deployment:** 
   - Uses `windeployqt` to bundle Qt dependencies
   - Uses Enigma Virtual Machine for creating a single executable file
-  - Final executable is provided in releases
+  - Final executable is provided in x64/Debug
 
 ## Project Structure
 
@@ -50,6 +50,8 @@ A Qt-based desktop application that implements classical encryption algorithms: 
 - `src/` - Source files
   - `ITLab1.cpp` - GUI logic and event handling
   - `Crypter.cpp` - Vigenere and Playfair cipher implementations
+- `ui/` - GUI files
+  - `ITLab1.ui` - GUI logic and event handling
 
 ## Building
 
