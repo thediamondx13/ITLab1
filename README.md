@@ -1,37 +1,22 @@
 # ITLab1 - Encryption Application
 
-A Qt-based desktop application that implements classical encryption algorithms: **Vigenere** and **Playfair** (with 4 tables modification).
-
-## Features
-
-### Vigenere Cipher
-- Encrypt and decrypt text using the Vigenere cipher algorithm
-- Save and load text to/from files
-- Support for Russian alphabet
-- Text input/output via GUI
-
-### Playfair Cipher (4 Tables Modification)
-- Encrypt and decrypt text using an enhanced Playfair cipher with 4 substitution tables
-- Each table (top-left, top-right, bottom-left, bottom-right) uses a separate key
-- Cleaner implementation compared to traditional single-table Playfair
-- Save and load text to/from files
-- Support for English alphabet
+A Qt-based desktop application that implements classical encryption algorithms: **Vigenere** and **Playfair** (4 squares modification).
 
 ## How to Use
 
 1. **Launch the application**
 
 2. **Vigenere Cipher:**
-   - Enter your plaintext in the input text area
-   - Enter your encryption key
-   - Click "Encrypt" to encode or "Decrypt" to decode
-   - Use "Load" and "Save" buttons to use file I/O
+	- Enter your plaintext in the input text area or select a file to input from
+	- Enter your encryption key
+	- Click "Encrypt" to encode or "Decrypt" to decode
+	- Copy the result from the output field or save it to a file
 
 3. **Playfair Cipher:**
-   - Enter your plaintext in the input text area
-   - Provide four separate keys (one for each table: TL, TR, BL, BR)
+   - Enter your plaintext in the input text area or select a file to input from
+   - Provide four encryption keys
    - Click "Encrypt" to encode or "Decrypt" to decode
-   - Use "Load" and "Save" buttons to use file I/O
+   - Copy the result from the output field or save it to a file
 
 ## Technical Details
 
@@ -39,8 +24,7 @@ A Qt-based desktop application that implements classical encryption algorithms: 
 - **Build System:** Visual Studio (Visual C++)
 - **Deployment:** 
   - Uses `windeployqt` to bundle Qt dependencies
-  - Uses Enigma Virtual Machine for creating a single executable file
-  - Final executable is provided in x64/Debug
+  - Executable with dependencies is provided in x64/Debug
 
 ## Project Structure
 
@@ -52,9 +36,12 @@ A Qt-based desktop application that implements classical encryption algorithms: 
   - `Crypter.cpp` - Vigenere and Playfair cipher implementations
 - `ui/` - GUI files
   - `ITLab1.ui` - GUI logic and event handling
+- `x64/` - build results for Windows x64
 
-## Building
+## Building the app yourself
 
 1. Open `ITLab1.vcxproj` in Visual Studio
 2. Build the solution
-3. For deployment, run `windeployqt` on the built executable and then use Enigma Virtual Machine to create the final distributable executable
+3. Run `windeployqt` on the built executable
+4. Use Enigma Virtual Machine or similar apps to create a portable executable
+Please do NOT distribute the app without source code

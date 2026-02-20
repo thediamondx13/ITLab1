@@ -62,7 +62,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
@@ -79,7 +79,6 @@
     </ClCompile>
     <PostBuildEvent>
       <Command>"D:\Qt\6.10.2\msvc2022_64\bin\windeployqt.exe" --debug "$(TargetPath)"
-"D:\Enigma Virtual Box\enigmavbconsole.exe" "$(ProjectDir)deploy.evb"
 del "$(TargetDir)*.pdb"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

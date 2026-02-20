@@ -72,7 +72,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 8px; }</str
         <item>
          <widget class="QGroupBox" name="groupVigenereInput">
           <property name="title">
-           <string>Исходный текст</string>
+           <string>Исходный текст (русский язык)</string>
           </property>
           <layout class="QVBoxLayout" name="inputLayout1">
            <item>
@@ -228,7 +228,7 @@ QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 8px; }</str
         <item>
          <widget class="QGroupBox" name="groupPlayfairInput">
           <property name="title">
-           <string>Исходный текст</string>
+           <string>Исходный текст (английский язык)</string>
           </property>
           <layout class="QVBoxLayout" name="inputLayout2">
            <item>

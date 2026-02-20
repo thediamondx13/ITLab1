@@ -13,6 +13,7 @@ ITLab1::~ITLab1()
 {
 }
 
+/* Leaves only characters in the alphabet and uppercases them */
 QString ITLab1::SanitizeText(const QString& text, const QString& alphabet)
 {
     QString cleanText;
